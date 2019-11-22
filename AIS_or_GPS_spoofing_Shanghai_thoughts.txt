@@ -1,0 +1,65 @@
+What's about these GPS "hacking" or "spoofing" in Shanghai, or is it more likely that this mistery is only spoofing of the AIS signals?
+Well, i was reading that article of Mark Harris, published in Technology review on November 15.2019 about "GPS mystery in Shanghai - https://www.technologyreview.com/s/614689/ghost-ships-crop-circles-and-soft-gold-a-gps-mystery-in-shanghai"
+a couple of times and try to bring a little more light into the dark.
+I say, its AIS spoofing and nothing more. 
+Very short Explanation is due to the effort an "attacker" have to put into to archive this behavior.
+AIS spoofing is very easy, GPS spoofing like in this case is very complex.
+
+Now let's try me to explain how this could work and who is able to do so.
+
+First of all, the term GPS is public known for "Global positioning service", a Service of the USA and corectly named Navstar-GPS.
+Most of us uses the Term GPS, but whe have to keep in mind that there are more of them. 
+GNSS (global navigation satelite system) is the correct naming for Satelite Navigation and there are a couple of them:
+	Navstar-GPS - USA - Global Positioning Service
+	Galileo - European Union - (no exlanation)
+	Beidou - Chinese - Astorid dipper constellation as name
+	Glonass - Russia - Globalnaja nawigazionnaja sputnikowaja sistema
+	and more.
+	
+Comming back to the story, I think it's more an AIS spoofing scenario that "someone" did in the Port of Shanghai rather than GNSS spoofing.
+Let me try to explain why:
+If you try to spoof the position of one ship, you have to spoof multiple GNSS receiver the same time, becaus the AIS transmitter is getting 
+the current position from his own GNSS Antenna. Mostly, Vessels have more than one GNSS receiver. 
+Lets take a (short) deeper look onto that.
+Spoofing a GNSS signal and let a GNSS receiver think it has a new possition ist not an big deal. Ther are a couple of tools, Hardware and Software, 
+out there starting at around 500 bucks that you have to invest. The big problem is to overide the signal of that one (or more) GNSS receivers on your Target.
+The Target could be a Vessel any type, like cargo or a Yacht. So you need now to send a spoofed signal to your Target with your equipment. So far, no big deal.
+But, depending on the receiver on board, you have to override the signal slowly by increasing signal strenght to let the GNSS receiver take your signal as new source.
+For those who want to read more, here is a more detailed explanation of the mechanism how a Navstar-GPS receiver gets a lock. http://www.gpsinformation.net/main/gpslock.htm
+
+The AIS (Automatic Identification System)  is primarily intended, to allow ships to view marine traffic in their area and to be seen by that traffic.
+Original purpose was Collision avoidance, but several other applications like fishing fleet monitoring, security and SAR using it also.
+Technically it is using mostly an VHF transceiver to send and receive the Informations on maritime channel 87B (161.975 Mhz) and 88B (162.025 MHz).
+The AIS is sending following Data: (only a selection)
+	MMSI (Maritime Mobile Service Identity - (like your mobile phone IMSI an unique ID)
+	Navigation Status like "at anchor", "moored" etc.
+	speed over ground
+	heading
+	position
+	type of ship
+	IMO-ship identification number and radio call sign
+	Name of the vessel
+	dimension of the ship
+	destination
+and many other informations.
+So all of these informations can also received by anyone in range of the signal, or you can them lookup on websites like marinetraffic.com or vesselfinder.com
+All Information needed for spoofing an Vessel via AIS is already there, you have ony to generate the spoofed signals.
+On the hardware side, only a Software defined Radio (SDR) that is able to send radio signals is needed. For that, devices like the HackRF aure there for less than 300$
+The only other thing needed is now a Software to send the Signals. For that, the Gnue Radio companion (GRC) is needed and a flow chart about what you whant to do.
+For the AIS , there are Flowcharts for receiving and for sending available on the Internet. 
+So from the security side of view, the AIS has no security in place for accuracy of the sended Information. No authentication and autorisations and no encryption.
+Everyone who is able to understand how AIS is working (no probling for interested humans) is able to send fake or ghost ships whereever they want.
+And this is, what I think, happend at Shanghai Port. 
+To proof that i am wrong or right, I (or someone else) have to analyse onsite the radiosignals and evaluate them during an attack.
+As an good read onto AIS security i can recommend the report done by Trendmicro onto it, available here: https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/a-security-evaluation-of-ais
+
+Ok, now whe have a way to let appear or move vessels on electronic charts, but why and what could happen?
+Maybe a speculative application is to try to force a colliosion of vessesl in the harbour.
+Some of the anti collision systems on vessels rely only on AIS informations and suggest an alternative course to avoid a collision based on the speed and course of the ships.
+If they maybe run on autopilot or under reduced sight by heavy wheather conditions or fog......
+But this is only an assumption of me.
+ 
+My conclusion on this Shanghai case:
+someone is for whatever reason spoofing the AIS information in the Port of Shanghai.
+
+ 
