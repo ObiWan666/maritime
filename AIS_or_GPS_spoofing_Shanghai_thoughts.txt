@@ -26,8 +26,6 @@ There you find 3 incidents :
 All of them seems to be an interference. No other reports by other ships.
 But an interference could also be due to spoofed signals. And the AIS data is also altered by the spoofed GPS.
 
-But lets
-
 Now it becomes more technical to explain:
 If you try to spoof the position of one ship, you have to spoof multiple GNSS receiver the same time, becaus the AIS transmitter is getting 
 the current position from his own GNSS Antenna. Mostly, Vessels have more than one GNSS receiver. 
@@ -79,16 +77,15 @@ So it is not clear, was it AIS Spoofing or GPS spoofing. It could be both with m
 
 Ok, now whe have a way to let appear or move vessels on electronic charts. This could be done by spoof the GPS position of one or more ships or
 by spoofing the AIS Position, which is much easier and is able to produce also ghost ships.
-But why and what could happen?
-Maybe a speculative application is to try to force a colliosion of vessesl in the harbour.
+One more background Information too Anti collision Systems.
 Some of the anti collision systems on vessels rely only on AIS informations and suggest an alternative course to avoid a collision based on the speed and course of the ships.
-If they maybe run on autopilot or under reduced sight by heavy wheather conditions or fog......
-But this is only an assumption of me.
+
 
 My conclusion on this Shanghai case:
-someone is for whatever reason spoofing the GNSS and AIS in the Port of Shanghai.
-GPS spoofing is reported and also AIS spoofing was detected.
+someone is for whatever reason spoofing the GNSS and/or AIS in the Port of Shanghai.
+GNSS spoofing is reported only a few times and spoofed AIS Data collected from 2 years for the report.
+Without a collection of both Data at same time to figure out what realy was spoofed is not possible.
+Also a list of affected GNSS receiver could be usefull, if it was GPS, Galileo or other GNSS spoofing.
+
 
 ObiWan666, November 2019
-
- 
