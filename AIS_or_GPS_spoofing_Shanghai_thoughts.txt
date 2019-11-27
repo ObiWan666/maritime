@@ -1,10 +1,11 @@
 GPS anomalies in Shanghai Port.
 What's about these GPS "hacking" or "spoofing" in Shanghai, or is it more likely that this mistery is only spoofing of the AIS signals?
 Well, i was reading that article of Mark Harris, published in Technology review on November 15.2019 about "GPS mystery in Shanghai - https://www.technologyreview.com/s/614689/ghost-ships-crop-circles-and-soft-gold-a-gps-mystery-in-shanghai"
-a couple of times and try to bring a little more light into the dark.
-I say, some of the claimed issues could rely on GPS spoofing and has effects in AIS as described in the article.
-But i think it is more an AIS Spoofing issue, but it's hard to figure out what realy happend. 
-AIS spoofing is very easy, GPS spoofing is more complex but not unlikely.
+a couple of times and try to bring a little more light into the dark. But, the more i read all of the reports, the more questions came up.
+My first thought was, some of the claimed issues could rely on GPS spoofing and has effects in AIS as described in the article.
+But after reading a couple of reports and details, i think it is more an AIS Spoofing issue, but it's hard to figure out what realy happend. 
+Why i will explain later. 
+In general, AIS spoofing is very easy, GPS spoofing is more complex but not unlikely and both will show their own effects in the results.
 
 Now let's try me to explain how this could work and who is able to do so.
 
@@ -17,16 +18,31 @@ GNSS (global navigation satelite system) is the correct naming for Satelite Navi
 	Glonass - Russia - Globalnaja nawigazionnaja sputnikowaja sistema
 	and more.
 	
-Comming back to the story, I think in this one example it's more likely an GPS spoofing scenario that "someone" did in the Port of Shanghai rather than AIS spoofing.
-After reading the GPS issue on https://navcen.uscg.gov/?Do=GPSReportStatus#definition i scrolled to the part where source event was happend.
+Comming back to the story with the "MV Manukai" case in Shanghai.
+First, another vessel appeard with 7 knots at same channel in the waterway, then this ship dissapeard and showed up immidiatly in the docks,
+then shortly later back in the channel and again shortly later back in the docks.
+Visual inspections with binocular by the captain shows up, that the "position jumping ship" was all the time at the dock.
+Then the second issue was, that the GPS Systems where not working anymore, 2 independend systems lost their signal and crosscheck with a mobile failed also.
+This GPS loss event was filed then to US Coast Guard Navigation Center.  
+You can read the GPS issue on https://navcen.uscg.gov/?Do=GPSReportStatus#definition. 
 There you find 3 incidents :
-09/08/2019    2200 China Taiwan Time 	- User: After docking in Shanghai, China, the GPS receiver was displaying incorrect position, speed and an audible beeping alarm. We believe it was due to interference.
-09/02/2019    0545 GMT 					- User: Vessel fast at container terminal working cargo. Speed and sometimes position jumping on all three units plus cell phone applications.
-09/02/2019    0545 GMT 					- User: Vessel is at berth working cargo in Shanghai experienced GPS issue.
+	09/08/2019    2200 China Taiwan Time 	- User: After docking in Shanghai, China, the GPS receiver was displaying incorrect position, speed and an audible beeping alarm. We believe it was due to interference.
+	09/02/2019    0545 GMT 					- User: Vessel fast at container terminal working cargo. Speed and sometimes position jumping on all three units plus cell phone applications.
+	09/02/2019    0545 GMT 					- User: Vessel is at berth working cargo in Shanghai experienced GPS issue.
 All of them seems to be an interference. No other reports by other ships.
-But an interference could also be due to spoofed signals. And the AIS data is also altered by the spoofed GPS.
+ 
+Ok, the first Incident could be an AIS spoofing, where someone spoofed the position of the "MV Manukai". These jumping Position of a ship 
+in the display of the ECDIS (Electronic Chart Display), where the AIS Position of all surrounding vessels are displayed, could be the results of a 
+double (spoofed) sended position from 2 diferent sources. First device send original position, spoofing device send different position. 
+Result could be these jumping positions in the ECDIS display.
+The second issue seems to be an GNSS jamming, because all GNSS receivers on board lost their signals and couldnt get a lock. 
+ 
 
-Now it becomes more technical to explain:
+Now lets try to technicaly explain how spoofing or jamming works and how easy it is:
+GNSS spoofing or jamming:
+Jamming is quite easy. Jammers can be bought online starting as low as 30$. Technically, it is nothing more than generating strong noise on the frequency
+of 1.575,42 MHz to block GPS receivers from getting a valid signal from the orbit.
+For spoofing, a little bit more has to be done.
 If you try to spoof the position of one ship, you have to spoof multiple GNSS receiver the same time, becaus the AIS transmitter is getting 
 the current position from his own GNSS Antenna. Mostly, Vessels have more than one GNSS receiver. 
 Lets take a (short) deeper look onto that.
@@ -42,7 +58,7 @@ When you are now successfully, the new position of the ship will appear on the d
 So it will look like on the ECDIS - the Electronic Chart Display - of other ships, that a you have a new position and speed. 
 
 Now, lets explain a little bit more how AIS works: 
-(remember, it will get its Position from GPS, all other information like heading, speed over ground etc. from internal NMEA network)
+(remember, it will get its Position from its own GNSS, all other information like heading, speed over ground etc. from internal NMEA network)
 
 The AIS (Automatic Identification System)  is primarily intended, to allow ships to view marine traffic in their area and to be seen by that traffic.
 Original purpose was Collision avoidance, but several other applications like fishing fleet monitoring, security and SAR using it also.
@@ -59,9 +75,11 @@ The AIS is sending following Data: (only a selection)
 	dimension of the ship
 	destination
 and many other informations.
-
-So all of these informations can also received by anyone in range of the signal, or you can them lookup on websites like marinetraffic.com or vesselfinder.com
-All Information needed for spoofing an Vessel via AIS is already there, you have ony to generate the spoofed signals.
+mandatory since december 2000, it was designed as an unencryped broadcast service for ship to ship or shore to ship communication.
+No authentication and no encryption is needed to send AIS informations. All you need to know is a few basic informations like MMSI, call sign, speed, heading, IMO ID, position and a few more.
+If you want to spoof a Vessel's AIS status, you need to look up those Info's first.
+All of these informations can also received by anyone in range of the sending vessel, or you can lookup them on websites like marinetraffic.com or vesselfinder.com
+The Information needed for spoofing an Vessel via AIS is already there, you have ony to generate the spoofed signals.
 On the hardware side, only a Software defined Radio (SDR) that is able to send radio signals is needed. For that, devices like the HackRF aure there for less than 300$
 The only other thing needed is now a Software to send the Signals. For that, the Gnue Radio companion (GRC) is needed and a flow chart about what you whant to do.
 For the AIS , there are Flowcharts for receiving and for sending available on the Internet. 
@@ -73,12 +91,14 @@ As an good read onto AIS security i can recommend the report done by Trendmicro 
 
 One thing in the Article is suspicious to me. The circling patterns of the C4ADS report and the detail, that they aggregated the logs of 2 years of
 AIS movements and made their conclusion from it.
-So it is not clear, was it AIS Spoofing or GPS spoofing. It could be both with mostly the same results. Combination of GPS Jamming and AIS spoofing seems a legit explanation. 
+So it is not clear, was it AIS Spoofing or GPS spoofing. It could be both with mostly the same results. The jumping positions could be an indicator for AIS spoofing. 
+Combination of GPS Jamming and AIS spoofing seems a legit explanation in the "MV Manukai" case. 
 
 Ok, now whe have a way to let appear or move vessels on electronic charts. This could be done by spoof the GPS position of one or more ships or
 by spoofing the AIS Position, which is much easier and is able to produce also ghost ships.
-One more background Information too Anti collision Systems.
-Some of the anti collision systems on vessels rely only on AIS informations and suggest an alternative course to avoid a collision based on the speed and course of the ships.
+There are more Systems on board that could rely only on the AIS Information. Think about the Anti collision Systems that some Vessels has in place.
+Some of these anti collision systems rely only on one source, the AIS position, heading and speed information and suggest an alternative course to avoid a collision based on the 
+received AIS data of the ships.
 
 
 My conclusion on this Shanghai case:
@@ -86,6 +106,12 @@ someone is for whatever reason spoofing the GNSS and/or AIS in the Port of Shang
 GNSS spoofing is reported only a few times and spoofed AIS Data collected from 2 years for the report.
 Without a collection of both Data at same time to figure out what realy was spoofed is not possible.
 Also a list of affected GNSS receiver could be usefull, if it was GPS, Galileo or other GNSS spoofing.
+Fact is, that there is something going on that tampers with the position data of Vessel's and the intend behind it is unklear.
+All of these is possible because authentication and authorisation is not needed for GPS and AIS to send a Informations.
 
+The GNSS systems needs to have the security features in place that are currently ony available to military and AIS need to be redesigned 
+to fullfill current requirements for safty and security in Maritime environments. 
 
 ObiWan666, November 2019
+
+ 
