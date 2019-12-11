@@ -1,0 +1,10 @@
+Wir schreiben das Jahr 1983. Mit dem „Brotkasten“ unterm Weihnachtsbaum fing alles an. 
+Seither ist Stephan Gerling mit dem Computervirus infiziert. Viren waren dann auch der erste Berührungspunkt zur IT-Sicherheit. 
+Er fing an, sie zu sammeln und ihre Funktion zu analysieren, um anschließend im Freundeskreis die verseuchten Rechner zu säubern.
+
+Angefangen als Elektriker, wechselte er schnell in die Elektronik und setzte schließlich bei der Bundeswehr Navigationssysteme für Hubschrauber instand. 
+Seit mehr als 19 Jahren ist er in der Öl- und Gasindustrie bei einem weltweit operierenden Unternehmen in Lingen als IT-Sicherheitsexperte / Security Evangelist beschäftigt. 
+Heute stehen für ihn Computer-Forensik, Penetration Tests und Awareness-Maßnahmen auf dem Programm – im speziellen Hacker-Angriffe und ihre Schutzmaßnahmen. Dabei ergänzen sich die Erfahrungen aus der physischen und der virtuellen Welt. 
+Elektronik und Computer-Forensik im Zeitalter des Internet of Things (IoT) sind seine Waffen zum Entdecken von Sicherheitslücken.
+
+Auf einschlägigen Sicherheitskonferenzen wie DEFCON (DC24-Skytalks, DC27- HackTheSea village), Hack-Lu, TheSAS, ICS Summit,  IT-Defense, ZeroNights oder SHA2017, um nur ein paar zu nennen, hält er Vorträge über Themen wie Hacking, Social Engineering und Physical Security.
