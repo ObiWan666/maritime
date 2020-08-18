@@ -1,5 +1,9 @@
 In this Maritime Security repository, i will post Infos about Maritime Security.
 
+Def Con 28 - Hack the Sea Village Talk
+https://www.youtube.com/watch?v=EHeoIL_y8Dw
+
+
 This could be
 - AIS
 - VTS
